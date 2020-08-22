@@ -14,10 +14,13 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {}
 
   buscar(search: string): void {
-    this.loader = true;
-    this.spotifyService.getArtists(search).subscribe((res) => {
-      this.artists = res;
-      this.loader = false;
-    });
+    this.artists = [];
+    if (search) {
+      this.loader = true;
+      this.spotifyService.getArtists(search).subscribe((res) => {
+        this.artists = res;
+        this.loader = false;
+      });
+    }
   }
 }
