@@ -25,3 +25,18 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Usage
+Postman must be opened and a call must be made to the endpoint 
+`https://accounts.spotify.com/api/token` with `POST method` and send the following body:
+
+NOTE: The `client_id` and `client_secret` are in [Spotify for developers](https://developer.spotify.com/)
+
+```
+grant_type: 'client_credentials',
+client_id: 'client_id',
+client_secret: 'client_secret'
+```
+
+Then you have to modify the token that is generated in the SpotifyService service.
