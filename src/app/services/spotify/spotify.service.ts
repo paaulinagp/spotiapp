@@ -27,9 +27,19 @@ export class SpotifyService {
     );
   }
 
-  getArtist(search: string): Observable<any> {
+  getArtists(search: string): Observable<any> {
     return this.getQuery(`search?q=${search}&type=artist`).pipe(
       map((res: any) => res.artists.items)
+    );
+  }
+
+  getArtist(id: string): Observable<any> {
+    return this.getQuery(`artists/${id}`);
+  }
+
+  getTopTracks(id: string): Observable<any> {
+    return this.getQuery(`artists/${id}/top-tracks?country=us`).pipe(
+      map((res: any) => res.tracks)
     );
   }
 }
